@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", "Helvetica";
+  font-size: 16px;
+}
+
+html {
+  background-color: #fff5f5;
+}
+
+.flex-container {
+  display: flex;
+}
+
+nav {
+  vertical-align: middle;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  font-family: "Hobeaux", "Helvetica";
+  font-size: 20px;
+}
+
+.logo {
+  height: 80px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  font-family: "Hobeaux", "Helvetica";
+  color: #ff9800;
+  line-height: 60px;
+}
+
+h2 {
+  font-size: 26px;
+  font-family: "Hobeaux", "Helvetica";
+  color: #ff9800;
+  margin: 5px;
+}
+
+p {
+  margin: 5px;
+}
+
+img {
+  border-radius: 10px;
+}
+
+/* Linkek */
+a {
+  color: #ff9800;
+  text-decoration: none;
+  padding: 8px 10px;
+  margin: 2px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a:hover {
+  outline: 2px solid #ff9800;
+  border-radius: 15px;
+  background-color: #fff5f5;
+  color: #ff9800;
+}
+
+a.current {
+  border: 2px solid #ff9800;
+  border-radius: 15px;
+  color: #fff5f5;
+  background-color: #ff9800;
+}
+
+a.img_link {
+  outline: 0;
+}
+
+a.text_link {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  text-decoration: underline;
+  font-family: "Montserrat", "Helvetica";
+  font-size: 16px;
+}
+
+/* Title hátterek */
+div.bg {
+  height: 350px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Hobeaux", "Helvetica";
+  font-size: 40px;
+  color: #ff9800;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+div.title {
+  background-image: url("images/title_bg.jpg");
+}
+
+div.aboutus {
+  background-image: url("images/aboutus_bg.jpg");
+}
+
+div.products {
+  background-image: url("images/products_bg.jpg");
+}
+
+div.order {
+  background-image: url("images/order_bg.jpg");
+}
+
+div.contact {
+  background-image: url("images/contact_bg.jpg");
+}
+
+/* Szövegek */
+.welcome {
+  margin: 30px 10px;
+}
+
+main {
+  width: 100%;
+}
+
+.maintext {
+  flex-direction: column;
+}
+
+.maintext-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.maintext-box a {
+  margin-top: 20px;
+}
+
+.mainimages {
+  display: block;
+  width: 100%;
+}
+
+/* Gomb */
+.forward_button {
+  width: 270px;
+  outline: 2px solid #ff9800;
+  border-radius: 15px;
+  color: #fff5f5;
+  background-color: #ff9800;
+  margin: 10px 0px 20px 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Termékek  */
+.products_textbox {
+  display: flex;
+  margin: 0px 5px 5px 5px;
+  flex-direction: column;
+}
+
+.products_imagebox {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.products_images {
+  width: auto;
+  height: 160px;
+  display: flex;
+}
+
+/* Képgaléria */
+.galleria {
+  margin: auto;
+  width: 90vw;
+  height: 80vw;
+}
+
+.galleria-theme-classic {
+  background-color: #fff5f5;
+}
+
+/* Form  */
+.form_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.form_flex form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form_decor {
+  border: 2px solid #ff9800;
+  border-radius: 15px;
+  padding: 10px 12px;
+  margin: 5px;
+  background-color: #fae9e9;
+  box-shadow: 10px 10px 20px #00000028;
+}
+
+.starred_info {
+  font-size: 12px;
+  color: gray;
+}
+
+/* Rólunk */
+.aboutus_text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #ff9800;
+  color: #fff5f5;
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+/* Fontok: */
+@font-face {
+  font-family: "Hobeaux";
+  src: url(font/HobeauxBold.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(font/Montserrat-Regular.ttf);
+}
+
+/* Media Query */
+@media only screen and (min-width: 800px) {
+  nav {
+    height: 110px;
+    font-size: 23px;
+  }
+
+  .logo {
+    height: 89px;
+  }
+
+  .main_decor {
+    margin: 0 auto;
+    width: 800px;
+    display: flex;
+    border-radius: 15px;
+    outline: 2px solid #fae9e9;
+    background-color: #fae9e9;
+    padding: 5px;
+    box-shadow: 10px 10px 20px #00000028;
+  }
+
+  .main_decor_2 {
+    margin: 0 auto;
+    width: 800px;
+    border-radius: 15px;
+    outline: 2px solid #fae9e9;
+    background-color: #fae9e9;
+    padding: 5px;
+    box-shadow: 10px 10px 20px #00000028;
+  }
+
+  .maintext-imagebox {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .maintext-imagebox-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .maintext-box {
+    flex-direction: column;
+    padding: 0 5px;
+  }
+
+  .mainimages {
+    width: auto;
+    height: 220px;
+  }
+
+  .products_imagebox {
+    display: flex;
+    flex-direction: row;
+    padding: 5 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Galéria */
+  .galleria {
+    width: 700px;
+    height: 700px;
+    margin: auto;
+  }
+
+  .galleria-theme-classic {
+    background-color: #fae9e9;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  nav {
+    height: 120px;
+    font-size: 25px;
+  }
+
+  .logo {
+    height: 98px;
+  }
+
+  .maintext-box {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .main_decor {
+    width: 1200px;
+    padding: 30px;
+  }
+
+  .products_decor {
+    width: 1200px;
+  }
+
+  /* Galéria */
+  .galleria {
+    width: 1100px;
+    height: 700px;
+    margin: auto;
+  }
+
+  .galleria-theme-classic {
+    background-color: #fae9e9;
+  }
+
+  .main_decor_2 {
+    width: 1200px;
+  }
+}

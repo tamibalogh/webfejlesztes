@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Balogh Tamara Sára" />
+    <meta
+      name="description"
+      content="A Piccolo's Pickles termékeinek rendelési oldala"
+    />
+    <meta name="copyright" content="Kizárólag oktatási célokra!" />
+
+    <title>Piccolo's</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#order_form").validate({
+          rules: {
+            surname: "required",
+            firstname: "required",
+            postcode: "required",
+            city: "required",
+            street: "required",
+            email: {
+              required: true,
+              email: true,
+            },
+            telephone: {
+              required: true,
+              telephone: true,
+            },
+            payment: {
+              required: true,
+            },
+            agree: {
+              required: true,
+            },
+          },
+          messages: {
+            surname: " Írjon be vezetéknevet!",
+            firstname: " Írjon be keresztnevet!",
+            postcode: " Adjon meg irányítószámot!",
+            city: " Adjon meg várost!",
+            street: " Adjon meg utcát és házszámot!",
+            email: " Valós email címet adjon meg!",
+            telephone: " Valós telefonszámot adjon meg!",
+            payment: " Válasszon fizetési módot!",
+            agree: " A folytatáshoz el kell fogadnuia az ÁSZF-et!",
+          },
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <nav class="flex-container">
+      <a href="index.html" class="img_link">
+        <img
+          src="images/logo_more_cropped.png"
+          alt="Piccolo's logó"
+          class="logo"
+        />
+      </a>
+      <a href="index.html">Főoldal</a>
+      <a href="termekek.html">Termékek</a>
+      <a href="rendeles.html" class="current">Rendelés</a>
+      <a href="rolunk.html">Rólunk</a>
+      <a href="elerhetosegek.html">Elérhetőségek</a>
+    </nav>
+
+    <div class="bg order flex-container">
+      Piccolo's Bread & Butter Pickle Chips
+    </div>
+
+    <div>
+      <h1 class="welcome">
+        Ha ki szeretné próbálni termékeinket, rendeljen most!
+      </h1>
+    </div>
+
+    <main>
+      <div class="form_flex">
+        <form
+          method="post"
+          action="http://szamtud.uni-corvinus.hu/receive.php"
+          id="order_form"
+        >
+          <div>
+            <h2>Választott termékek:</h2>
+            <p class="form_decor">
+              <input type="checkbox" name="classic" id="classic_id" />
+              <label for="classic_id">Klasszikus savanyú uborka: 2990 Ft</label
+              ><br />
+              <input type="checkbox" name="onion" id="onion_id" />
+              <label for="onion_id"
+                >Hagymás-fokhagymás savanyú uborka: 3490 Ft</label
+              ><br />
+              <input type="checkbox" name="mustard" id="mustard_id" />
+              <label for="mustard_id"
+                >Mustármagos-zellermagos savanyú uborka: 3490 Ft</label
+              >
+            </p>
+          </div>
+
+          <div>
+            <h2>Szállítási adatok:</h2>
+            <p class="form_decor">
+              <label for="surname">Vezetéknév:</label>
+              <input type="text" name="surname" id="surname" /><br />
+              <label for="firstname"> Keresztnév: </label>
+              <input type="text" name="firstname" id="firstname" /><br />
+              <label for="postcode"> Irányítószám: </label>
+              <input
+                type="number"
+                name="postcode"
+                maxlength="4"
+                id="postcode"
+              /><br />
+              <label for="city"> Település: </label
+              ><input type="text" name="city" id="city" /><br />
+              <label for="street"> Utca, házszám: </label
+              ><input type="text" name="street" id="street" /><br />
+              <label for="delivery"> Szállítás időpontja*: </label>
+              <input type="date" name="delivery" id="delivery" />
+              <br /><span class="starred_info"
+                >*Ha nem ad meg érvényes szállítási időpontot, automatikusan 1
+                hét múlva szállítunk.</span
+              >
+            </p>
+          </div>
+
+          <div>
+            <h2>Elérhetőségek:</h2>
+            <p class="form_decor">
+              <label for="email"> Email cím: </label
+              ><input type="email" name="email" id="email" /><br />
+              <label for="telephone"> Telefonszám: </label
+              ><input type="tel" name="telephone" id="telephone" />
+            </p>
+          </div>
+
+          <div>
+            <h2>Fizetési mód:</h2>
+            <p class="form_decor">
+              <label for="payment" class="error">Válassz fizetési módot!</label
+              ><br /><input
+                type="radio"
+                name="payment"
+                value="card"
+                id="card"
+              /><label for="card"> Bankkártyás fizetés</label><br />
+              <input type="radio" name="payment" value="cash" id="cash" /><label
+                for="cash"
+              >
+                Készpénzes fizetés a futárnak +1000 Ft</label
+              ><br />
+              <input
+                type="radio"
+                name="payment"
+                value="transfer"
+                id="transfer"
+              /><label for="transfer"> Átutalás +500 Ft</label>
+            </p>
+          </div>
+
+          <div>
+            <h2>Fizetendő:</h2>
+            <p class="form_decor">
+              Termékek ára: <span id="product_output">0 Ft</span> <br />
+              Kedvezmény: <span id="discount_output">0 Ft</span><br />
+              Fizetési mód költsége: <span id="extra_cost">0 Ft</span><br />
+              Végösszeg: <span id="total_output">0 Ft</span>
+            </p>
+          </div>
+
+          <div>
+            <p>
+              Szeretne feliratkozni hírlevelünkre 10% kedvezményért cserébe?<br />
+              <input type="radio" name="subscribe" value="yes" id="radio_yes" />
+              <label for="radio_yes"> Igen</label><br />
+              <input type="radio" name="subscribe" value="no" id="radio_no" />
+              <label for="radio_no"> Nem</label><br />
+              <label for="agree">Elolvastam, és elfogadom az</label>
+              <a href="aszf.txt" class="text_link">ÁSZF</a>-et:
+              <input type="checkbox" name="agree" id="agree" />
+            </p>
+          </div>
+
+          <p id="total_output"></p>
+
+          <input
+            type="submit"
+            value="Rendelés leadása"
+            id="submit_button"
+            disabled
+          />
+          <input type="reset" value="Alaphelyzetbe állítás" />
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>Kizárólag oktatási célokra! &copy;2023 Balogh Tamara Sára</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

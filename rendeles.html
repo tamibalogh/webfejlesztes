@@ -93,15 +93,15 @@
             <p class="form_decor">
               <input type="checkbox" name="classic" id="classic_id" />
               <label for="classic_id">Klasszikus savanyú uborka: 2990 Ft</label
-              ><br />
+              ><br /><span id="classic_quantity"></span>
               <input type="checkbox" name="onion" id="onion_id" />
               <label for="onion_id"
                 >Hagymás-fokhagymás savanyú uborka: 3490 Ft</label
-              ><br />
+              ><br /><span id="onion_quantity"></span>
               <input type="checkbox" name="mustard" id="mustard_id" />
               <label for="mustard_id"
                 >Mustármagos-zellermagos savanyú uborka: 3490 Ft</label
-              >
+              ><span id="mustard_quantity"></span>
             </p>
           </div>
 
@@ -113,12 +113,7 @@
               <label for="firstname"> Keresztnév: </label>
               <input type="text" name="firstname" id="firstname" /><br />
               <label for="postcode"> Irányítószám: </label>
-              <input
-                type="number"
-                name="postcode"
-                maxlength="4"
-                id="postcode"
-              /><br />
+              <input type="number" name="postcode" id="postcode" /><br />
               <label for="city"> Település: </label
               ><input type="text" name="city" id="city" /><br />
               <label for="street"> Utca, házszám: </label
@@ -145,8 +140,7 @@
           <div>
             <h2>Fizetési mód:</h2>
             <p class="form_decor">
-              <label for="payment" class="error">Válassz fizetési módot!</label
-              ><br /><input
+              <label for="payment">Válassz fizetési módot!</label><br /><input
                 type="radio"
                 name="payment"
                 value="card"
@@ -188,8 +182,6 @@
               <input type="checkbox" name="agree" id="agree" />
             </p>
           </div>
-
-          <p id="total_output"></p>
 
           <input
             type="submit"

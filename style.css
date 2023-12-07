@@ -175,12 +175,13 @@ main {
   display: flex;
   flex-direction: row;
   padding: 5px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .products_images {
   width: auto;
   height: 160px;
-  display: flex;
 }
 
 /* Képgaléria */
@@ -311,12 +312,15 @@ footer {
   .products_imagebox {
     display: flex;
     flex-direction: row;
-    padding: 5 10px;
-    justify-content: space-between;
-    align-items: center;
+    padding: 5px 10px;
   }
 
-  /* Galéria */
+  .form_flex {
+    width: 700px;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
   .galleria {
     width: 700px;
     height: 700px;
@@ -348,11 +352,19 @@ footer {
     padding: 30px;
   }
 
+  .main_decor_2 {
+    width: 1200px;
+    padding: 30px;
+  }
+
   .products_decor {
     width: 1200px;
   }
 
-  /* Galéria */
+  .form_flex {
+    width: 1100px;
+  }
+
   .galleria {
     width: 1100px;
     height: 700px;
@@ -361,9 +373,5 @@ footer {
 
   .galleria-theme-classic {
     background-color: #fae9e9;
-  }
-
-  .main_decor_2 {
-    width: 1200px;
   }
 }

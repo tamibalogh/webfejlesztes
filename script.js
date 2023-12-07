@@ -2,7 +2,6 @@ let total = 0;
 const classic = 2990;
 const flavored = 3490;
 let discount = 0;
-let extra = 0;
 
 const checkboxClassic = document.getElementById("classic_id");
 const checkboxOnion = document.getElementById("onion_id");
@@ -10,6 +9,7 @@ const checkboxMustard = document.getElementById("mustard_id");
 const totalOutput = document.getElementById("total_output");
 const discountOutput = document.getElementById("discount_output");
 const productOutput = document.getElementById("product_output");
+const radioCard = document.getElementById("card");
 const radioCash = document.getElementById("cash");
 const radioTransfer = document.getElementById("transfer");
 const paymentOutput = document.getElementById("extra_cost");
@@ -18,14 +18,23 @@ const radioNewsletterNo = document.getElementById("radio_no");
 const checkboxAgree = document.getElementById("agree");
 const submitButton = document.getElementById("submit_button");
 
+function radio_ellenoriz() {
+  kivalasztas_card();
+  kivalasztas_cash();
+  kivalasztas_transfer();
+}
+
 function kivalasztas_classic() {
   if (checkboxClassic.checked) {
     total = total + classic;
   } else {
-    total = total - classic;
+    spanClassic.innerHTML = "";
+    // total = total - classic;
   }
   totalOutput.innerText = `${total} Ft`;
   productOutput.innerText = `${total} Ft`;
+
+  radio_ellenoriz();
 }
 
 function kivalasztas_onion() {
@@ -36,6 +45,8 @@ function kivalasztas_onion() {
   }
   totalOutput.innerText = `${total} Ft`;
   productOutput.innerText = `${total} Ft`;
+
+  radio_ellenoriz();
 }
 
 function kivalasztas_mustard() {
@@ -46,24 +57,29 @@ function kivalasztas_mustard() {
   }
   totalOutput.innerText = `${total} Ft`;
   productOutput.innerText = `${total} Ft`;
+
+  radio_ellenoriz();
+}
+
+function kivalasztas_card() {
+  if (radioCard.checked) {
+    paymentOutput.innerText = `0 Ft`;
+    totalOutput.innerText = `${total} Ft`;
+  }
 }
 
 function kivalasztas_cash() {
   if (radioCash.checked) {
-    extra = 1000;
-    total = total + extra;
+    paymentOutput.innerText = `1000 Ft`;
+    totalOutput.innerText = `${total + 1000} Ft`;
   }
-  paymentOutput.innerText = `1000 Ft`;
-  totalOutput.innerText = `${total} Ft`;
 }
 
 function kivalasztas_transfer() {
   if (radioTransfer.checked) {
-    extra = 500;
-    total = total + extra;
+    paymentOutput.innerText = `500 Ft`;
+    totalOutput.innerText = `${total + 500} Ft`;
   }
-  paymentOutput.innerText = `500 Ft`;
-  totalOutput.innerText = `${total} Ft`;
 }
 
 function kivalasztas_newsletter_yes() {
@@ -72,7 +88,7 @@ function kivalasztas_newsletter_yes() {
     discount = Math.round(total * 0.1);
   }
   totalOutput.innerText = `${total} Ft`;
-  discountOutput.innerText = `-${discount} Ft`;
+  discountOutput.innerText = `${discount} Ft`;
 }
 
 function kivalasztas_newsletter_no() {
@@ -94,6 +110,7 @@ function submit_disable() {
 checkboxClassic.addEventListener("change", kivalasztas_classic);
 checkboxOnion.addEventListener("change", kivalasztas_onion);
 checkboxMustard.addEventListener("change", kivalasztas_mustard);
+radioCard.addEventListener("change", kivalasztas_card);
 radioCash.addEventListener("change", kivalasztas_cash);
 radioTransfer.addEventListener("change", kivalasztas_transfer);
 radioNewsletterYes.addEventListener("change", kivalasztas_newsletter_yes);
